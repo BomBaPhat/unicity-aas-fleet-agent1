@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  aas-fleet-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aas-fleet-agent-testnet2
+    restart: unless-stopped
+    environment:
+      - UNICITY_RPC_URL=${UNICITY_RPC_URL}
+      - UNICITY_NETWORK=testnet2
+      - AGENT_NAMETAG=${AGENT_NAMETAG}
+      - AGENT_MNEMONIC=${AGENT_MNEMONIC}
+      - AGENT_WALLET_PASSWORD=${AGENT_WALLET_PASSWORD}
+      - MIN_PROFIT_MARGIN_PERCENT=${MIN_PROFIT_MARGIN_PERCENT}
+      - MAX_POSITION_SIZE_TOKENS=${MAX_POSITION_SIZE_TOKENS}
+      - STOP_LOSS_THRESHOLD=${STOP_LOSS_THRESHOLD}
+      - NOSTR_RELAY_URLS=${NOSTR_RELAY_URLS}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - ASTRIDOS_SANDBOX_MODE=true
+    volumes:
+      - ./logs:/opt/aas-fleet-agent/logs
+      - ./.env:/opt/aas-fleet-agent/.env:ro
+    mem_limit: 512m
+    cpus: 1.0
+    networks:
+      - aas-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Optional: Prometheus for metrics collection (future)
+  # prometheus:
+  #   image: prom/prometheus:latest
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #   ports:
+  #     - "9090:9090"
+  #   networks:
+  #     - aas-network
+
+networks:
+  aas-network:
+    driver: bridge

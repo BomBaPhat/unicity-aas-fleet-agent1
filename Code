@@ -1,0 +1,20 @@
+aas-fleet-agent/
+├── src/
+│   ├── index.ts                 # Main agent loop & orchestration
+│   ├── config/
+│   │   ├── environment.ts       # Config & constants
+│   │   └── types.ts             # Global TypeScript interfaces
+│   ├── modules/
+│   │   ├── marketListener.ts    # Nostr-based intent listener
+│   │   ├── arbitrageEngine.ts   # Arbitrage logic & profit calculations
+│   │   ├── executor.ts          # Sphere SDK wallet & escrow execution
+│   │   └── riskManager.ts       # Guardrails & balance monitoring
+│   └── utils/
+│       ├── logger.ts            # Structured logging
+│       └── helpers.ts           # Utility functions
+├── .env.example                 # Environment template
+├── package.json
+├── tsconfig.json
+├── README.md
+├── ARCHITECTURE.md
+└── docker-compose.yml           # AstridOS containerization
