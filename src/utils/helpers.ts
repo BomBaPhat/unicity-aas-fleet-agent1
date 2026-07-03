@@ -1,4 +1,5 @@
-import { v4 as uuidv4 } from "crypto";
+import { randomBytes } from 'crypto';
+export const v4 = () => randomBytes(16).toString('hex');
 
 /**
  * Generate unique IDs for opportunities, positions, and events
