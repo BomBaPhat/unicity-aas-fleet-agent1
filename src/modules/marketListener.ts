@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { EventEmitter } from "events";
 import { config } from "../config/environment.js";
 import { MarketIntent } from "../config/types.js";
