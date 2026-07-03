@@ -24,8 +24,8 @@ import { sleep } from "./utils/helpers.js";
 
 class AASFleetAgent {
   private isRunning: boolean = false;
-  private mainLoopInterval: NodeJS.Timer | null = null;
-  private healthCheckInterval: NodeJS.Timer | null = null;
+  private mainLoopInterval: any | null = null;
+  private healthCheckInterval: any | null = null;
 
   constructor() {
     this.setupEventListeners();
