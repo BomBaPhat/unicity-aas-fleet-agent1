@@ -24,7 +24,7 @@
   "author": "BomBaPhat",
   "license": "MIT",
   "dependencies": {
-    "@unicity-sphere/sphere-sdk": "latest",
+    "@unicitylabs/sphere-sdk": "latest",
     "nostr-tools": "^1.14.0",
     "dotenv": "^16.3.1",
     "pino": "^8.16.2",
