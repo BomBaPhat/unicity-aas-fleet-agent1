@@ -5,7 +5,7 @@ export const v4 = () => randomBytes(16).toString('hex');
  * Generate unique IDs for opportunities, positions, and events
  */
 export const generateId = (): string => {
-  return uuidv4();
+  return v4();
 };
 
 /**
