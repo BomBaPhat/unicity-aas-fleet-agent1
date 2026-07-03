@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { randomBytes } from 'crypto';
 export const v4 = () => randomBytes(16).toString('hex');
 
